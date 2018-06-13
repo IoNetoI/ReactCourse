@@ -1,7 +1,10 @@
 import React from 'react';
 
-const WeatherExtraData = () => (
-   <div>extradata</div>
+const WeatherExtraData = ({humidity, wind}) => (
+   <div>
+        <span>{`${humidity}  % `}</span>
+        <span>{`${wind} wind`}</span>
+   </div>
 );
 
 export default WeatherExtraData;
