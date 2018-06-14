@@ -1,10 +1,10 @@
 import React from 'react';
 
 const WeatherExtraData = ({humidity, wind}) => (
-   <div>
+    <div>
         <span>{`${humidity}  % `}</span>
-        <span>{`${wind} wind`}</span>
-   </div>
+        <span>{`${wind} km/h`}</span>
+    </div>
 );
 
 export default WeatherExtraData;
