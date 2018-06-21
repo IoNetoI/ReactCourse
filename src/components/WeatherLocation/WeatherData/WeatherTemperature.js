@@ -3,6 +3,7 @@ import WeatherIcons from 'react-weathericons';
 import PropTypes from 'prop-types';
 import {CLOUD, CLOUDY, SUN, RAIN, SNOW}
  from "./../../../constants/weathers";
+import './style.css';
 
 const stateToIconName = (weatherState) => {
     switch (weatherState) {
