@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const WeatherExtraData = ({humidity, wind}) => (
-    <div>
+    <div  className='weatherExtraDataCont'>
         <span>{`${humidity}  % `}</span>
         <span>{`${wind} km/h`}</span>
     </div>
@@ -12,7 +12,7 @@ const WeatherExtraData = ({humidity, wind}) => (
 WeatherExtraData.propTypes =
 {
     humidity : PropTypes.number.isRequired,
-    wind : PropTypes.string.isRequired,
+    wind : PropTypes.number.isRequired,
 }
 
 export default WeatherExtraData;
