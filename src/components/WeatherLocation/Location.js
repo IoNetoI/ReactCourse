@@ -5,8 +5,9 @@ const Location = ({ city }) => {
     return (<div><h1>{city}</h1></div>)
 };
 
-Location.propTypes =
+Location.PropTypes =
 {
     city : PropTypes.string.isRequired,
 }
+
 export default Location;
