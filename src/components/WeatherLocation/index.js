@@ -3,6 +3,12 @@ import Location from './Location';
 import WeatherData from './WeatherData';
 import {SUN} from './../../constants/weathers'
 
+const location = "Buenos Aires,ar";
+const api_key = "3882911117a87ee3c850473668f77141";
+const url_base_weather = "http://api.openweathermap.org/data/2.5/weather";
+
+const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}`;
+
 const data = {
     temperature :5,
     weatherState: SUN,
@@ -15,17 +21,30 @@ class WeatherLocation  extends Component {
     constructor(){
         super();//constructor base react
         this.state ={
-            city: "Madrid",
+            city: "Terrassa",
             data : data,
         };
     }
 
-    handleUpdateClick = () =>{
-        data.humidity =60;
-        data.wind= 45;
+    setDataToView = (datos) =>{
         this.setState({
-            data:data,
-        })
+            data:datos,
+        });
+    }
+
+    handleUpdateClick = () => {
+        fetch(api_weather)
+        .then(resolve => {
+            return resolve.json();
+            })
+            .then((response) => {
+                data.city = response.name;
+                data.humidity = response.main.humidity;
+                data.temperature= response.main.temp;
+                data.wind = response.wind.speed;
+
+                this.setDataToView(data);
+            });   
     }
 
     render () {
